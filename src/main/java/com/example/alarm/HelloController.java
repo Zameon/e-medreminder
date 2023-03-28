@@ -147,6 +147,8 @@ public class HelloController implements Initializable {
                                // throw new RuntimeException(ex);
                             //}
                             showNotifications();
+                            DBConn db = new DBConn();
+                            db.updatenextTimes(medicinename.getText(), now, tm.currentweekday());
                         }
 
                         //if(time.getCurrentTime().equals(alarmTime.getText())){
@@ -507,7 +509,7 @@ public class HelloController implements Initializable {
                 else alarmTime.setText(hourfield.getText() + ":" + minfield.getText() + ":00");
             } else {
                 if (hourfield.getText().equals("12")) alarmTime.setText("12:" + minfield.getText() + ":00");
-                else alarmTime.setText(Integer.parseInt(hourfield.getText()) + 12 + ":" + minfield.getText() + ":00");
+                else alarmTime.setText(String.valueOf(Integer.parseInt(hourfield.getText())+ 12) + ":" + minfield.getText() + ":00");
             }
         }
 

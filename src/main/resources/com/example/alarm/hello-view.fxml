@@ -79,7 +79,6 @@
       <Button fx:id="Done" alignment="CENTER" layoutX="655.0" layoutY="441.0" mnemonicParsing="false" onAction="#onDonePressed" style="-fx-background-color: purple;" text="Done" textFill="#fcf5f5" />
       <Button alignment="CENTER" layoutX="28.0" layoutY="25.0" mnemonicParsing="false" onAction="#onBackPressed" style="-fx-background-color: purple;" text="Back" textFill="#fcf5f5" />
       <Label fx:id="minflderr" alignment="CENTER" layoutX="48.0" layoutY="344.0" prefHeight="18.0" prefWidth="126.0" textFill="#b90404" />
-      <Button fx:id="okbutton" alignment="CENTER" layoutX="343.0" layoutY="419.0" mnemonicParsing="false" onAction="#onOKpressed" style="-fx-background-color: purple;" text="OK" textFill="#fcf5f5" />
       <Text fx:id="txt" layoutX="249.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="32.799999999999955" />
       <ComboBox fx:id="myComboBox" layoutX="345.0" layoutY="366.0" opacity="0.58" prefHeight="26.0" prefWidth="102.0" promptText="Pill(s)" style="-fx-background-color: rgba(71, 22, 91, 0.32);" />
       <Label fx:id="selected" layoutX="288.0" layoutY="403.0" prefHeight="18.0" prefWidth="166.0" />

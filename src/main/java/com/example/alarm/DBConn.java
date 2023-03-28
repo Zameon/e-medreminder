@@ -210,7 +210,31 @@ public class DBConn {
 
     public void updatenextTimes(String mname, String almtime, String weekde)
     {
+        try
+        {
+            PreparedStatement ps = conn.prepareStatement("select repeatation, nextTime  from demo where med_name = ? AND remtime = ? AND weekday = ?");
+            ps.setString(1, mname);
+            ps.setString(2, almtime);
+            ps.setString(3, weekde);
+            ResultSet rs = ps.executeQuery();
 
+            CurrentTime tm = new CurrentTime();
+            String[] ans = new String[5];
+
+            while(rs.next())
+            {
+                System.out.println(rs.getInt("repeatation") +" " + rs.getString("nextTime"));
+                ans = tm.getNextTime((int) 24/rs.getInt("repeatation"), rs.getString("nextTime"));
+                System.out.println("My answer is" + ans[3]);
+
+            }
+
+            //System.out.println(ans[3]);
+
+        }
+        catch (SQLException e) {
+            System.out.println(" Error while connecting to database. Exception code : " + e);
+        }
     }
 
 

@@ -17,12 +17,13 @@ public class CurrentTime {
 
     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
     private Map week = new HashMap<>();
-    Calendar cal = Calendar.getInstance();
 
     String[] hocche = new String[5];
 
 
-    public CurrentTime(){
+    public CurrentTime() {
+        System.out.println("imgointocry");
+
     }
 
     public CurrentTime(String dt) throws ParseException
@@ -74,11 +75,13 @@ public class CurrentTime {
 
     public String[] getNextTime(int add, String rmtime)
     {
+        Calendar cal = Calendar.getInstance();
         String[] spleet = rmtime.split(":");
         cal.setTime(date);
-        cal.set(Calendar.HOUR, Integer.parseInt(spleet[0]));
+        cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(spleet[0]));
         cal.set(Calendar.MINUTE, Integer.parseInt(spleet[1]));
         cal.set(Calendar.SECOND, Integer.parseInt(spleet[2]));
+        System.out.println(cal.getTime());
         System.out.println("Inside gnt " + date.toString());
         System.out.println(cal.get(Calendar.DAY_OF_WEEK));
         System.out.println(cal.getTime());
