@@ -11,13 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -27,12 +23,10 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.util.Pair;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.HashMap;
@@ -46,7 +40,7 @@ public class HelloController implements Initializable {
     //Time time = new Time(new CurrentTime().currentTime());
     //Time time = new Time("12:13:34");
     Time time = new Time(new CurrentTime().currentTime());
-    HashMap<String, Boolean> alarmtimes = new HashMap<String, Boolean>();
+    HashMap<String, Boolean> alarmtimes = new HashMap<>();
     HashMap<Pair<String, String>, Boolean> timeandweek = new HashMap<>();
 
 
@@ -56,11 +50,7 @@ public class HelloController implements Initializable {
     @FXML
     private TextField alarmTime;
     @FXML
-    private Button b1;
-
-    @FXML
     private Button hourup;
-
     @FXML
     private Button hourdown;
     @FXML
@@ -148,7 +138,7 @@ public class HelloController implements Initializable {
                             //}
                             showNotifications();
                             DBConn db = new DBConn();
-                            db.updatenextTimes(medicinename.getText(), now, tm.currentweekday());
+                            alarmtimes.put(db.updatenextTimes(medicinename.getText(), now, tm.currentweekday()), Boolean.TRUE);
                         }
 
                         //if(time.getCurrentTime().equals(alarmTime.getText())){
@@ -170,7 +160,6 @@ public class HelloController implements Initializable {
     private Text txt;
     @FXML
     private Button okbutton;
-    private ObservableList<demoinfo> list = FXCollections.observableArrayList();
 
     // Create a combo box
     @FXML
@@ -229,9 +218,6 @@ public class HelloController implements Initializable {
 
         mednum.setVisible(true);
 
-        if (setWeekly.isSelected() == false) enddate.setDisable(false);
-        else enddate.setDisable(true);
-
         System.out.println(setWeekly.isSelected());
 
 
@@ -264,13 +250,7 @@ public class HelloController implements Initializable {
         //db.updatenextTimes(medicinename.getText(), crtime, tm.currentweekday());
     }*/
 
-    @FXML
-    private void onOKpressed()
-    {
-        list.add(new demoinfo(medicinename.getText(), alarmTime.getText(), Integer.parseInt(dosage.getText())));
-        medicinename.setText("");
-        dosage.setText("");
-    }
+
 
     @FXML
     private void onSchedulePressed()
@@ -571,6 +551,15 @@ public class HelloController implements Initializable {
         {
             yesweekly = 1;
             endans = "";
+        }
+        else
+        {
+            System.out.println("herecomestheend");
+            yesweekly = 0;
+            stuff = enddate.getValue().toString().split("-");
+            endans = stuff[2] + "-" + stuff[1] + "-" + stuff[0];
+            CurrentTime tm = new CurrentTime(endans);
+            endans = tm.findNextDay();
         }
         DBConn db = new DBConn();
         //System.out.println(alarmTime.getText());

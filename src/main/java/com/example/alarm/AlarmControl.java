@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 import javax.xml.namespace.QName;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class AlarmControl implements Initializable {
@@ -44,6 +46,7 @@ public class AlarmControl implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        removeExpired();
         ObservableList<demoinfo> list = db.getTable();
         demoinfo[] llst = new demoinfo[list.size()];
         mednum.setText(String.valueOf(list.size()));
@@ -80,6 +83,14 @@ public class AlarmControl implements Initializable {
 
         handleButtons();
 
+    }
+
+    private void removeExpired()
+    {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        String str = formatter.format(date);
+        db.removeExpDates(str);
     }
 
     @FXML

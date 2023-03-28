@@ -208,8 +208,10 @@ public class DBConn {
         return cnt;
     }
 
-    public void updatenextTimes(String mname, String almtime, String weekde)
+    public String updatenextTimes(String mname, String almtime, String weekde)
     {
+        String[] ans = new String[5];
+
         try
         {
             PreparedStatement ps = conn.prepareStatement("select repeatation, nextTime  from demo where med_name = ? AND remtime = ? AND weekday = ?");
@@ -219,15 +221,22 @@ public class DBConn {
             ResultSet rs = ps.executeQuery();
 
             CurrentTime tm = new CurrentTime();
-            String[] ans = new String[5];
+            String temp = new String();
 
-            while(rs.next())
-            {
-                System.out.println(rs.getInt("repeatation") +" " + rs.getString("nextTime"));
-                ans = tm.getNextTime((int) 24/rs.getInt("repeatation"), rs.getString("nextTime"));
+            while(rs.next()) {
+                System.out.println(rs.getInt("repeatation") + " " + rs.getString("nextTime"));
+                temp = rs.getString("nextTime");
+                ans = tm.getNextTime((int) 24 / rs.getInt("repeatation"), rs.getString("nextTime"));
                 System.out.println("My answer is" + ans[3]);
-
             }
+
+            ps = conn.prepareStatement("update demo set remtime = ?, nextTime = ? where med_name = ? AND weekday = ?");
+            ps.setString(1, temp);
+            ps.setString(2, ans[3]);
+            ps.setString(3, mname);
+            ps.setString(4, weekde);
+
+            ps.executeUpdate();
 
             //System.out.println(ans[3]);
 
@@ -235,8 +244,29 @@ public class DBConn {
         catch (SQLException e) {
             System.out.println(" Error while connecting to database. Exception code : " + e);
         }
+        return ans[3];
     }
 
+    public void removeExpDates(String str)
+    {
+        try
+        {
+            Statement stmt = ((java.sql.Connection) conn).createStatement();
+            String quer = "delete from demo where endDate = '"+str+"'";
+
+            int a = stmt.executeUpdate(quer);
+            if (a > 0) {
+                System.out.println("Data is deleted");
+            } else {
+                System.out.println("Deletion failed");
+            }
+            stmt.close();
+
+        }
+        catch (SQLException e) {
+            System.out.println(" Error while connecting to database. Exception code : " + e);
+        }
+    }
 
 
 }

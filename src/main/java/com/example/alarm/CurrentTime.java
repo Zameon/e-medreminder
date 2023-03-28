@@ -62,7 +62,7 @@ public class CurrentTime {
 
     private static final long MILLIS_IN_A_DAY = 1000 * 60 * 60 * 24;
 
-    private String findNextDay()
+    public String findNextDay()
     {
         Date ndate = new Date(date.getTime() + MILLIS_IN_A_DAY);
         return formatter.format(ndate).toString();
