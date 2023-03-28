@@ -1,0 +1,42 @@
+.button
+{
+-fx-background-color : rgba(235, 221, 250, 0.45);
+-fx-text-fill : white;
+}
+.button:hover{
+-fx-background-color : rgb(255, 255, 255);
+}
+.button:pressed
+{
+-fx-background-color : rgb(91, 11, 87);
+}
+
+.scroll-pane {
+    -fx-background-color: rgba(190, 179, 208, 0.11);
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(111, 109, 114, 0.11);
+    -fx-background-radius: 5em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}

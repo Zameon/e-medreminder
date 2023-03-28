@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alarm.HelloController">
+    <children>
+      <ImageView fitHeight="38.0" fitWidth="27.0" layoutX="174.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@arrow-up-down-icon-simple-thin-line-outline-vector-arrows-icons-ui-ux-website-mobile-application-white-background-156285825.jpg" />
+         </image>
+      </ImageView>
+        <Text fx:id="timer" layoutX="192.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="335.69964599609375">
+            <font>
+                <Font name="Baskerville Old Face" size="38.0" />
+            </font>
+        </Text>
+        <TextField fx:id="alarmTime" alignment="CENTER" disable="true" editable="false" layoutX="35.0" layoutY="62.0" />
+      <TextField fx:id="hourfield" alignment="CENTER" disable="true" layoutX="48.0" layoutY="245.0" prefHeight="38.0" prefWidth="126.0" text="01" />
+      <Button fx:id="hourup" blendMode="DARKEN" layoutX="180.0" layoutY="237.0" mnemonicParsing="false" onAction="#setHourup" opacity="0.01" prefHeight="15.0" prefWidth="9.0" />
+      <Button fx:id="hourdown" layoutX="179.0" layoutY="268.0" mnemonicParsing="false" onAction="#setHourdown" opacity="0.01" prefHeight="9.0" prefWidth="16.0" />
+      <Button fx:id="Submit" alignment="CENTER" layoutX="77.0" layoutY="401.0" mnemonicParsing="false" onAction="#onSubmitClicked" prefWidth="68.0" style="-fx-background-color: purple;" text="Set Alarm" textFill="#fcf5f5" />
+      <TextField fx:id="medicinename" alignment="CENTER" layoutX="285.0" layoutY="199.0" promptText="Medicine Name" style="-fx-border-color: white;" />
+      <ImageView fitHeight="156.0" fitWidth="207.0" layoutX="268.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image_2023-03-08_151536678-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="174.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@arrow-up-down-icon-simple-thin-line-outline-vector-arrows-icons-ui-ux-website-mobile-application-white-background-156285825.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="minfield" alignment="CENTER" layoutX="48.0" layoutY="305.0" onScroll="#setHourup" opacity="0.57" prefHeight="38.0" prefWidth="126.0" text="00" />
+      <Button fx:id="minup" layoutX="180.0" layoutY="294.0" mnemonicParsing="false" onAction="#setminup" opacity="0.01" prefHeight="8.0" prefWidth="16.0" />
+      <Button fx:id="mindown" layoutX="180.0" layoutY="325.0" mnemonicParsing="false" onAction="#setMindown" opacity="0.01" prefHeight="15.0" prefWidth="1.0" />
+      <ToggleButton fx:id="ambut" layoutX="64.0" layoutY="357.0" mnemonicParsing="false" onAction="#togglebutton" opacity="0.49" prefHeight="26.0" prefWidth="45.0" style="-fx-background-radius: 50;" text="AM" textFill="#070210">
+         <toggleGroup>
+            <ToggleGroup fx:id="buttons" />
+         </toggleGroup>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </ToggleButton>
+      <ToggleButton fx:id="pmbut" layoutX="122.0" layoutY="357.0" mnemonicParsing="false" onAction="#togglebutton" opacity="0.49" prefHeight="26.0" prefWidth="45.0" style="-fx-background-radius: 50;" text="PM" toggleGroup="$buttons">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </ToggleButton>
+      <Label disable="true" layoutX="97.0" layoutY="223.0" opacity="0.36" text="Hours" textAlignment="CENTER">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label disable="true" layoutX="93.0" layoutY="286.0" opacity="0.36" text="Minutes" textAlignment="CENTER">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <TextField fx:id="dosage" alignment="CENTER" layoutX="291.0" layoutY="366.0" pickOnBounds="false" prefHeight="26.0" prefWidth="54.0" promptText="Dosage" style="-fx-border-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></TextField>
+      <Button fx:id="Done" alignment="CENTER" layoutX="655.0" layoutY="441.0" mnemonicParsing="false" onAction="#onDonePressed" style="-fx-background-color: purple;" text="Done" textFill="#fcf5f5" />
+      <Button alignment="CENTER" layoutX="28.0" layoutY="25.0" mnemonicParsing="false" onAction="#onBackPressed" style="-fx-background-color: purple;" text="Back" textFill="#fcf5f5" />
+      <Label fx:id="minflderr" alignment="CENTER" layoutX="48.0" layoutY="344.0" prefHeight="18.0" prefWidth="126.0" textFill="#b90404" />
+      <Button fx:id="okbutton" alignment="CENTER" layoutX="343.0" layoutY="419.0" mnemonicParsing="false" onAction="#onOKpressed" style="-fx-background-color: purple;" text="OK" textFill="#fcf5f5" />
+      <Text fx:id="txt" layoutX="249.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="32.799999999999955" />
+      <ComboBox fx:id="myComboBox" layoutX="345.0" layoutY="366.0" opacity="0.58" prefHeight="26.0" prefWidth="102.0" promptText="Pill(s)" style="-fx-background-color: rgba(71, 22, 91, 0.32);" />
+      <Label fx:id="selected" layoutX="288.0" layoutY="403.0" prefHeight="18.0" prefWidth="166.0" />
+      <Button layoutX="234.0" layoutY="233.0" mnemonicParsing="false" onAction="#onSyringeClicked" prefHeight="53.0" prefWidth="26.0" style="-fx-background-color: rgba(71, 22, 91, 0.32);">
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@syringe.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="297.0" layoutY="233.0" mnemonicParsing="false" onAction="#onPillsClicked" prefHeight="53.0" prefWidth="26.0" style="-fx-background-color: rgba(71, 22, 91, 0.32);">
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@pills.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="360.0" layoutY="233.0" mnemonicParsing="false" onAction="#onCapsuleClicked" prefHeight="53.0" prefWidth="26.0" style="-fx-background-color: rgba(71, 22, 91, 0.32);">
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@tablet.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="424.0" layoutY="233.0" mnemonicParsing="false" onAction="#onLiquidClicked" prefHeight="54.0" prefWidth="62.0" style="-fx-background-color: rgba(71, 22, 91, 0.32);">
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@liquid.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="233.0" layoutY="285.0" mnemonicParsing="false" onAction="#onSyringeClicked" opacity="0.43" prefHeight="27.0" prefWidth="63.0" style="-fx-border-color: white;" text="Syringe" />
+      <VBox fx:id="days" disable="true" layoutX="571.0" layoutY="197.0" prefHeight="170.0" prefWidth="100.0" />
+      <TextField fx:id="mednum" alignment="CENTER" layoutX="520.0" layoutY="48.0" promptText="Number" style="-fx-border-color: white;" />
+      <ComboBox fx:id="nums" layoutX="77.0" layoutY="178.0" opacity="0.58" prefHeight="26.0" prefWidth="68.0" promptText="1" style="-fx-background-color: rgba(71, 22, 91, 0.32);" />
+      <Line endX="63.5999755859375" endY="361.3999938964844" layoutX="157.0" layoutY="90.0" opacity="0.15" startX="63.5999755859375" startY="107.79998779296875" strokeWidth="0.5" />
+      <Button layoutX="296.0" layoutY="284.0" mnemonicParsing="false" onAction="#onPillsClicked" opacity="0.43" prefHeight="27.0" prefWidth="63.0" style="-fx-border-color: white;" text="Pills" />
+      <Button layoutX="360.0" layoutY="284.0" mnemonicParsing="false" onAction="#onCapsuleClicked" opacity="0.43" prefHeight="27.0" prefWidth="63.0" style="-fx-border-color: white;" text="Capsule" />
+      <Button layoutX="423.0" layoutY="284.0" mnemonicParsing="false" onAction="#onLiquidClicked" opacity="0.43" prefHeight="27.0" prefWidth="63.0" style="-fx-border-color: white;" text="Liquid" />
+      <Line endX="63.5999755859375" endY="361.3999938964844" layoutX="439.0" layoutY="92.0" opacity="0.15" startX="63.5999755859375" startY="107.79998779296875" strokeWidth="0.5" />
+      <DatePicker fx:id="startdate" layoutX="520.0" layoutY="147.0" promptText="Pick Start Date" style="-fx-border-color: white;" />
+      <DatePicker fx:id="enddate" disable="true" editable="false" layoutX="520.0" layoutY="187.0" promptText="Pick End Date" style="-fx-border-color: white;" />
+      <RadioButton fx:id="setWeekly" layoutX="557.0" layoutY="222.0" mnemonicParsing="false" onAction="#onWeeklyPressed" selected="true" style="-fx-background-color: white; -fx-border-color: white;" text="Repeat Weekly" textFill="#898989" />
+      <Text layoutX="47.0" layoutY="160.0" opacity="0.43" strokeType="OUTSIDE" strokeWidth="0.0" text="How many times a day?" wrappingWidth="126.40000000000009" />
+      <CheckBox fx:id="Sun" layoutX="557.0" layoutY="267.0" mnemonicParsing="false" opacity="0.66" stylesheets="@checcbox.css" text="Sunday" />
+      <CheckBox fx:id="Mon" layoutX="557.0" layoutY="290.0" mnemonicParsing="false" opacity="0.66" stylesheets="@checcbox.css" text="Monday" />
+      <CheckBox fx:id="Tue" layoutX="557.0" layoutY="310.0" mnemonicParsing="false" opacity="0.66" stylesheets="@checcbox.css" text="Tuesday" />
+      <CheckBox fx:id="Wed" layoutX="557.0" layoutY="334.0" mnemonicParsing="false" opacity="0.66" stylesheets="@checcbox.css" text="Wednesday" />
+      <CheckBox fx:id="Thurs" layoutX="557.0" layoutY="358.0" mnemonicParsing="false" opacity="0.66" prefHeight="18.0" prefWidth="85.0" stylesheets="@checcbox.css" text="Thursday" />
+      <CheckBox fx:id="Sat" layoutX="557.0" layoutY="245.0" mnemonicParsing="false" opacity="0.66" stylesheets="@checcbox.css" text="Saturday" />
+      <CheckBox fx:id="Fri" layoutX="557.0" layoutY="383.0" mnemonicParsing="false" opacity="0.66" prefHeight="18.0" prefWidth="85.0" stylesheets="@checcbox.css" text="Friday" />
+      <Label fx:id="medtype" alignment="CENTER" disable="true" layoutX="280.0" layoutY="326.0" prefHeight="18.0" prefWidth="158.0" />
+    </children>
+</AnchorPane>

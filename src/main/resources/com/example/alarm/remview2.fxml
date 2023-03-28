@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="718.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alarm.AlarmControl">
+    <children>
+        <VBox alignment="TOP_CENTER" minWidth="-Infinity" prefHeight="480.0" prefWidth="177.0" style="-fx-background-color: rgba(185,7,185,0.82);">
+            <children>
+                <ImageView fitHeight="73.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@userlogo.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="50.0" />
+                    </VBox.margin></ImageView>
+                <Label alignment="CENTER" prefHeight="18.0" prefWidth="126.0" text="Hello, userAnon" textAlignment="CENTER" textFill="#e7e5e5">
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </Label>
+            <Button fx:id="btnOverview" mnemonicParsing="false" prefHeight="63.0" prefWidth="183.0" style="-fx-background-color: rgba(185,7,185,0.82);" text="Overview" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@reminder-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <stylesheets>
+                  <URL value="@style.css" />
+                  <URL value="@style.css" />
+               </stylesheets>
+            </Button>
+            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#onAddNewPressed" prefHeight="66.0" prefWidth="184.0" style="-fx-background-color: rgba(185,7,185,0.82);" text="Add New" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@addbtn.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <stylesheets>
+                  <URL value="@style.css" />
+                  <URL value="@style.css" />
+               </stylesheets>
+            </Button>
+            <ImageView fitHeight="154.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@prt-removebg-preview.png" />
+               </image>
+            </ImageView>
+            </children>
+        </VBox>
+        <StackPane layoutX="176.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="541.0" style="-fx-background-color: white;" stylesheets="@style.css">
+            <children>
+                <Pane fx:id="pnlOverview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="533.0" style="-fx-background-color: white;">
+               <children>
+                        <TextField layoutX="317.0" layoutY="20.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: white; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
+                        <Label layoutX="31.0" layoutY="24.0" prefHeight="35.0" prefWidth="222.0" text="Medicine Reminders" textFill="#460344">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="59.0" prefHeight="92.0" prefWidth="661.0" spacing="50.0">
+                            <children>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label fx:id="dosnum" text="22000" textFill="#2a73ff">
+                                            <font>
+                                                <Font name="System Bold" size="26.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Total Doses" textFill="#200202" />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label fx:id="mednum" text="1500" textFill="#26bfbc">
+                                            <font>
+                                                <Font name="System Bold" size="26.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Total Medicine" textFill="#200202" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="185.0" prefHeight="27.0" prefWidth="515.0" spacing="90.0" style="-fx-background-color: #e3e3e3;">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="79.0" text="Time" textFill="#4e4949">
+                                    <HBox.margin>
+                                        <Insets left="50.0" />
+                                    </HBox.margin>
+                                </Label>
+                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="127.0" text="Medicine" textFill="#4e4949">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                                <Label alignment="CENTER" prefHeight="18.0" prefWidth="92.0" text="Doses" textFill="#4e4949">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="470.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@pictures/search.png" />
+                            </image>
+                        </ImageView>
+                        <ScrollPane layoutX="5.0" layoutY="219.0" prefHeight="218.0" prefWidth="524.0" stylesheets="@style.css">
+                     <content>
+                                <VBox fx:id="pnItems" prefHeight="254.0" prefWidth="538.0" spacing="5.0" style="-fx-background-color: #e3e3e3;">
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                </VBox>
+                     </content>
+                        </ScrollPane>
+               </children></Pane>
+            </children>
+        </StackPane>
+    </children>
+    <effect>
+        <DropShadow color="#1b1eeb" />
+    </effect>
+</AnchorPane>
